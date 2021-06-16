@@ -169,17 +169,17 @@ export class UsuarioService {
   //   }
   // }
 
-  traerEspecialistas(){
+  traerProfesores(){
     return this.usuarios.pipe(map(value => 
       { return value.filter(user => 
-       { return user.perfil == "especialista"; });
+       { return user.perfil == "profesor"; });
     }));
   }
 
-  traerPacientes(){
+  traerAlumnos(){
     return this.usuarios.pipe(map(value => 
       { return value.filter(user => 
-       { return user.perfil == "paciente"; });
+       { return user.perfil == "alumno"; });
     }));
   }
 

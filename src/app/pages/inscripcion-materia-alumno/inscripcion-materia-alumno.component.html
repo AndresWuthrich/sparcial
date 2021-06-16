@@ -1,0 +1,36 @@
+<app-navbar></app-navbar>
+
+<p>inscripcion-materia-alumno works!</p>
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="d-flex justify-content-between align-items-center mb-3" *ngIf="listaMaterias != null">
+            <h4>Lista de materias</h4>
+        </h4>
+        <ul class="list-group mb-3">
+            <li class="list-group-item d-flex justify-content-between" *ngFor="let materia of listaMaterias"
+              (click)="inscripcionAlumno(materia)">
+                <div>
+                    <h6 class="text-info">{{materia.descripcion}} {{materia.cupoAlumnos}} {{materia.profesor}}</h6>
+                    <img src="{{materia.imagen}}"/>
+                </div>
+            </li>
+        </ul>
+        <!-- <hr>
+        <label class="mb-2">Seleccione materia de la lista</label>
+        <div class="col-md-12 mb-2" *ngIf="!banderaMateriaSeleccionada">
+            <ul class="list-group card-body overflow-auto" id="boxConScroll"
+                style="height: 130px;" #scrollMe [scrollTop]="scrollMe">
+                <li type="text"
+                    class="list-group-item d-flex justify-content-between lh-condensed"
+                    *ngFor="let materia of listaMateriasSeleccionadas" disable>
+
+                    <input type="text" class="form-control" value="{{materia.descripcion}}" disabled> -->
+                        <!-- value="{{especialidad.nombre}} {{especialidad.duracion}}" disabled> -->
+                    <!-- <button class="btn btn-primary"
+                        (click)="InscripcionAlumno(materia)">Inscribir</button> -->
+                <!-- </li>
+            </ul>
+        </div> -->
+    </div> 
+</div>

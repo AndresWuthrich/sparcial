@@ -14,6 +14,10 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AuthService } from './services/auth.service';
+import { ListadoMateriasComponent } from './pages/listado-materias/listado-materias.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { InscripcionMateriaAlumnoComponent } from './pages/inscripcion-materia-alumno/inscripcion-materia-alumno.component';
+import { DetalleMateriaComponent } from './pages/detalle-materia/detalle-materia.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,11 @@ import { AuthService } from './services/auth.service';
     HomeComponent,
     PageNotFoundComponent,
     AltaMateriaComponent,
-    InscripcionMateriaComponent
+    InscripcionMateriaComponent,
+    ListadoMateriasComponent,
+    NavbarComponent,
+    InscripcionMateriaAlumnoComponent,
+    DetalleMateriaComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Materia } from 'src/app/clases/materia';
+import { Usuario } from 'src/app/clases/usuario';
+import { MateriaService } from 'src/app/services/materia.service';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-alta-materia',
@@ -9,10 +13,16 @@ import { Router } from '@angular/router';
 })
 export class AltaMateriaComponent implements OnInit {
 
+  public materiaAlta: Materia = new Materia();
   public signup: boolean;
   public formMateria: FormGroup;
+  private imagen: any;
+  public listaProfesores: Usuario[] = [];
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  public banderaProfesorSeleccionado = true;
+  public listaProfesoresSeleccionados: Array<Usuario> = new Array<Usuario>();
+
+  constructor(private fb: FormBuilder, private router: Router, private materiaService: MateriaService, private usuarioService: UsuarioService) {
     this.signup = false;
 
     this.formMateria = this.fb.group({
@@ -20,8 +30,15 @@ export class AltaMateriaComponent implements OnInit {
       'cuatrimestre':['', Validators.required],
       'cupoAlumnos':['', Validators.required],
       'anio':['', Validators.required],
-      'profesor':['', Validators.required]
-    })
+      'profesor':['', Validators.required],
+      'imagen':['', Validators.required]
+    });
+
+    this.usuarioService.traerProfesores().subscribe((usuarios: Usuario[]) => {
+      console.log(usuarios);
+      this.listaProfesores = usuarios;
+    });
+
    }
 
   ngOnInit(): void {
@@ -41,48 +58,40 @@ export class AltaMateriaComponent implements OnInit {
     // this.auth.Registro(email, password).then(value => { 
     //   console.log(value?.user?.uid);
 
-      // this.usuarioAlta.nombre = this.formRegistro.controls['nombre'].value;
-      // this.usuarioAlta.apellido = this.formRegistro.controls['apellido'].value;
-      // this.usuarioAlta.edad = this.formRegistro.controls['edad'].value;
-      // this.usuarioAlta.dni = this.formRegistro.controls['dni'].value;
-      // this.usuarioAlta.perfil = this.perfil;
-      // this.usuarioAlta.email = this.formRegistro.controls['email'].value;
-      // this.usuarioAlta.password = this.formRegistro.controls['password'].value;
-      // this.usuarioAlta.imagenPerfil = this.formRegistro.controls['imagen'].value;
-      // this.usuarioAlta.uid = this.auth.usuario.uid;
-      // this.usuarioAlta.uid = value?.user?.uid;
- 
-      // if(this.perfil=='paciente'){
-      //   this.usuarioAlta.imagenPerfil2 = this.formRegistro.controls['imagen2'].value;
-      //   this.usuarioAlta.obraSocial = this.formRegistro.controls['obraSocial'].value;
-      //   this.usuarioAlta.cuentaAprobada = true;
-        
-      //   console.log(this.imagenPerfil);
-      //   console.log(this.imagenPerfil2);
-      //   this.usuarioService.agregarPaciente(this.imagenPerfil, this.imagenPerfil2, this.usuarioAlta);
-        // this.email = this.password = '';
-  
-      // } else {
-        // this.usuarioAlta.especialidad = this.formRegistro.controls['especialidad'].value;
-        // this.usuarioAlta.especialidad = this.listaEspecialidadesSeleccionadas;
+    this.materiaAlta.descripcion = this.formMateria.controls['descripcion'].value;
+    this.materiaAlta.cuatrimestre = this.formMateria.controls['cuatrimestre'].value;
+    this.materiaAlta.cupoAlumnos = this.formMateria.controls['cupoAlumnos'].value;
+    this.materiaAlta.anio = this.formMateria.controls['anio'].value;
+    this.materiaAlta.profesor = this.formMateria.controls['profesor'].value;
+    this.materiaAlta.imagen = this.formMateria.controls['imagen'].value;
 
-        // this.listaDiasSeleccionadas.push(new DiasAtencion(true, 'Lunes', 8, 19));
-        // this.listaDiasSeleccionadas.push(new DiasAtencion(true, 'Martes', 8, 19));
-        // this.listaDiasSeleccionadas.push(new DiasAtencion(true, 'Miercoles', 8, 19));
-        // this.listaDiasSeleccionadas.push(new DiasAtencion(true, 'Jueves', 8, 19));
-        // this.listaDiasSeleccionadas.push(new DiasAtencion(true, 'Viernes', 8, 19));
-        // this.listaDiasSeleccionadas.push(new DiasAtencion(true, 'Sabado', 8, 14));
+    console.log("alta", this.materiaAlta);
+    this.materiaService.agregarMateria(this.imagen, this.materiaAlta);
 
-        // this.usuarioAlta.horarioAtencion = this.listaDiasSeleccionadas;
-
-        // console.log(this.imagenPerfil);
-        // this.usuarioService.agregarEspecialista(this.imagenPerfil, this.usuarioAlta);
-        // this.email = this.password = '';
-      // }
-      // this.router.navigate(['verificacion-email']);
-      this.router.navigate(['home']);
-      // });
-    // console.log(this.auth.usuario.uid);
+    this.router.navigate(['home']);
   }
 
+  cargarImagen(event: any): void {
+    this.imagen = event.target.files[0];
+    console.log(this.imagen);
+  }
+
+  agregarProfesor(usuario: Usuario){
+    this.banderaProfesorSeleccionado = false;
+    if(this.listaProfesoresSeleccionados.includes(usuario)){
+
+    } else{
+      this.listaProfesoresSeleccionados.push(usuario);
+      this.formMateria.controls['profesor'].setValue(usuario.email);
+    }
+  }
+
+  // agregarNuevoProfesor(){
+  //   console.log();
+  //   if(this.descripcionEspecialidad != ''){
+  //     this.especialidadAlta.descripcion = this.descripcionEspecialidad;
+
+  //     this.especialidadService.agregarEspecialidad(this.especialidadAlta);
+  //   }
+  // }
 }

@@ -1,26 +1,26 @@
-<!-- <app-navbar></app-navbar> -->
-<!-- <br>< br> -->
+<app-navbar></app-navbar>
+
 <!-- <img src="../../../assets/imagenes/back3.jpg" /> -->
 <!-- <p>bienvenido works!</p> -->
 
 <body class="foto">
     <div class="col-md-6" *ngIf="userLogueado | async as user; else login ">
         <div *ngIf="usuarioLogueado != null">
-            <!-- <div *ngIf="usuarioLogueado.perfil=='paciente' || usuarioLogueado.perfil=='administrador'"> --> -->
+            <!-- <div *ngIf="usuarioLogueado.perfil=='paciente' || usuarioLogueado.perfil=='administrador'"> --> 
                 <!-- <a class="btn btn-outline-dark" routerLink="/solicitarturno">Solicitar Turno</a> -->
             <!-- </div>
 
             <div *ngIf="usuarioLogueado.perfil=='paciente'"> -->
-                <!-- <a class="btn btn-outline-dark" routerLink="/misturnos">Mis turnos</a> -->
-            <!-- </div>
+                <!-- <a class="btn btn-outline-dark" routerLink="/misturnos">Mis turnos</a>
+            </div> -->
 
-            <div *ngIf="usuarioLogueado.perfil=='especialista'"> -->
-                <!-- <a class="btn btn-outline-dark" routerLink="/misturnos-especialista">Mis turnos</a> -->
-            <!-- </div>
+            <div *ngIf="usuarioLogueado.perfil=='alumno' || usuarioLogueado.perfil=='administrador'"> 
+                <a class="btn btn-outline-dark" routerLink="/inscripcionmateriaalumno">Inscripción materia</a>
+             </div>
 
-            <div *ngIf="usuarioLogueado.perfil=='administrador'"> -->
-                <a class="btn btn-outline-dark" routerLink="/admin/altamateria">Alta materia</a>
-                <a class="btn btn-outline-dark" routerLink="/vermaterias">Ver materias</a>
+            <!--<div *ngIf="usuarioLogueado.perfil=='administrador'"> -->
+                <!-- <a class="btn btn-outline-dark" routerLink="/admin/altamateria">Alta materia</a> -->
+                <a class="btn btn-outline-dark" routerLink="/listadomaterias">Ver materias</a>
             <!-- </div> -->
 
             <!-- <a class="btn btn-outline-dark" routerLink="/miperfil">Mi perfil</a> -->
