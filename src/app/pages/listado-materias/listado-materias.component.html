@@ -7,7 +7,7 @@
         </h4>
         <ul class="list-group mb-3">
             <li [appResaltarMateria]="materia.cupoAlumnos" class="list-group-item d-flex justify-content-between" *ngFor="let materia of listaMaterias">
-              <!-- (click)="agregarProfesor(profesor)"> -->
+                <!-- (click)="enviarEventoMateriaSeleccionada(materia)"> -->
                 <div>
                     <h6 class="text-info">{{materia.descripcion}} {{materia.cupoAlumnos}}</h6>
                     <img src="{{materia.imagen}}"/>

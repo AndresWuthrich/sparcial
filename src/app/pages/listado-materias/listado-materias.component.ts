@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Materia } from 'src/app/clases/materia';
 import { Usuario } from 'src/app/clases/usuario';
@@ -12,6 +12,8 @@ import { UsuarioService } from 'src/app/services/usuario.service';
   styleUrls: ['./listado-materias.component.css']
 })
 export class ListadoMateriasComponent implements OnInit {
+
+  @Output() eventoMateriaSeleccionada: EventEmitter<any> = new EventEmitter<any>();
 
   public listaMaterias: Materia[] = [];
   public userLogueado: Observable<any> = this.auth.fireStoreAuth.user;
@@ -71,6 +73,9 @@ export class ListadoMateriasComponent implements OnInit {
 
       });
 
-
   }
+  enviarEventoMateriaSeleccionada(materia: Materia){
+    this.eventoMateriaSeleccionada.emit(materia);
+  }
+
 }

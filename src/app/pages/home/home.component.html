@@ -18,6 +18,10 @@
                 <a class="btn btn-outline-dark" routerLink="/inscripcionmateriaalumno">Inscripción materia</a>
              </div>
 
+             <div *ngIf="usuarioLogueado.perfil=='profesor'"> 
+                <a class="btn btn-outline-dark" routerLink="/altaexamen">Alta examen</a>
+             </div>
+
             <!--<div *ngIf="usuarioLogueado.perfil=='administrador'"> -->
                 <!-- <a class="btn btn-outline-dark" routerLink="/admin/altamateria">Alta materia</a> -->
                 <a class="btn btn-outline-dark" routerLink="/listadomaterias">Ver materias</a>

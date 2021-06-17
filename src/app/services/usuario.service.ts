@@ -240,29 +240,4 @@ export class UsuarioService {
       });
     });
   }
-  
-  // async actualizarDiasAtencion(documento: any, user: Usuario) {
-  //     var usuario = this.afs.collection(this.dbPath).doc(documento);
-  //     console.log(usuario);
-  //     return usuario.update({
-  //       horarioAtencion: user.horarioAtencion,
-  //     })
-  //       .then(() => {
-  //         Swal.fire({
-  //           title: 'Agregado de día de atención exitoso'
-  //         });
-  //       }).catch((error) => {
-  //         Swal.fire({
-  //           title: error.code,
-  //           text: error.message
-  //         });
-  //       });
-    
-        //   console.log("Documento actualizado!");
-        // })
-        // .catch((error) => {
-        //   console.error("Error en la actualizacion: ", error);
-        // });
-    // }
-
 }

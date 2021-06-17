@@ -1,0 +1,96 @@
+<app-navbar></app-navbar>
+
+<p>alta-examen works!</p>
+
+<div class="container">
+    <form [formGroup]="formExamen" (ngSubmit)="alta()">
+      <div class="row">
+        <div class="col-md-12 mb-5">
+          <h2>Alta examen</h2>
+        </div>
+      </div>
+      <div class="row formulario">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="d-flex justify-content-between align-items-center mb-3" *ngIf="listaMaterias != null">
+                    <h4>Lista de materias</h4>
+                </h4>
+                <ul class="list-group mb-3">
+                    <li class="list-group-item d-flex justify-content-between" *ngFor="let materia of listaMaterias"
+                      (click)="agregarMateria(materia)">
+                        <div>
+                            <h6 class="text-info">{{materia.descripcion}}</h6>
+                        </div>
+                    </li>
+                </ul>
+                <hr>
+                <label class="mb-2">Seleccione materia de la lista</label>
+                <div class="col-md-12 mb-2" *ngIf="!banderaMateriaSeleccionada">
+                    <ul class="list-group card-body overflow-auto" id="boxConScroll"
+                        style="height: 130px;" #scrollMe [scrollTop]="scrollMe">
+                        <li type="text"
+                            class="list-group-item d-flex justify-content-between lh-condensed"
+                            *ngFor="let materia of listaMateriasSeleccionadas" disable>
+      
+                            <input type="text" class="form-control" value="{{materia.descripcion}}" disabled>
+                        </li>
+                    </ul>
+                </div>
+            </div> 
+           </div>
+
+           <div class="card">
+            <div class="card-body">
+                <h4 class="d-flex justify-content-between align-items-center mb-3" *ngIf="listaAlumnos != null">
+                    <h4>Lista de alumnos</h4>
+                </h4>
+                <ul class="list-group mb-3">
+                    <li class="list-group-item d-flex justify-content-between" *ngFor="let alumno of listaAlumnos"
+                      (click)="agregarAlumno(alumno)">
+                        <div>
+                            <h6 class="text-info">{{alumno.email}}</h6>
+                        </div>
+                    </li>
+                </ul>
+                <hr>
+                <label class="mb-2">Seleccione alumno de la lista</label>
+                <div class="col-md-12 mb-2" *ngIf="!banderaAlumnoSeleccionado">
+                    <ul class="list-group card-body overflow-auto" id="boxConScroll"
+                        style="height: 130px;" #scrollMe [scrollTop]="scrollMe">
+                        <li type="text"
+                            class="list-group-item d-flex justify-content-between lh-condensed"
+                            *ngFor="let alumno of listaAlumnosSeleccionados" disable>
+      
+                            <input type="text" class="form-control" value="{{alumno.email}}" disabled>
+                        </li>
+                    </ul>
+                </div>
+            </div> 
+           </div>
+
+           <div class="col-md-6 mb-3">
+                <label for="nota" class="form-label">Nota</label>
+                <input type="number" class="form-control" id="nota" placeholder="Ingrese nota" formControlName='nota'>
+                <small class="invalid" *ngIf="formExamen.get('nota')?.errors?.required && formExamen.get('nota')?.touched">
+                    La nota es requerida</small>
+                <small class="invalid" *ngIf="formExamen.get('nota')?.errors?.min || formExamen.get('nota')?.errors?.max && formExamen.get('nota')?.touched ">
+                  La nota debe ser entre 1 a 10</small>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="fechaExamen" class="form-label">Fecha</label>
+                <input type="number" class="form-control" id="fechaExamen" placeholder="Ingrese fecha" formControlName='fechaExamen'>
+                <small class="invalid" *ngIf="formExamen.get('fechaExamen')?.errors?.required && formExamen.get('fechaExamen')?.touched">
+                    La fecha es requerida</small>
+            </div>
+        </div>
+      <div class="row">
+        <div class="col-md-12 d-grid gap-2">
+          <button type="submit" class="btn btn-primary btn-block">
+            Aceptar
+          </button>
+        </div>
+      </div>
+
+    </form>
+  </div>

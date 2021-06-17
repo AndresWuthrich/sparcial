@@ -17,9 +17,9 @@ import { AuthService } from './services/auth.service';
 import { ListadoMateriasComponent } from './pages/listado-materias/listado-materias.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { InscripcionMateriaAlumnoComponent } from './pages/inscripcion-materia-alumno/inscripcion-materia-alumno.component';
-import { DetalleMateriaComponent } from './pages/detalle-materia/detalle-materia.component';
 import { ResaltarMateriaDirective } from './directives/resaltar-materia.directive';
 import { UpperPipe } from './pipes/upper.pipe';
+import { AltaExamenComponent } from './pages/alta-examen/alta-examen.component';
 
 @NgModule({
   declarations: [
@@ -33,9 +33,9 @@ import { UpperPipe } from './pipes/upper.pipe';
     ListadoMateriasComponent,
     NavbarComponent,
     InscripcionMateriaAlumnoComponent,
-    DetalleMateriaComponent,
     ResaltarMateriaDirective,
-    UpperPipe
+    UpperPipe,
+    AltaExamenComponent
   ],
   imports: [
     BrowserModule,
