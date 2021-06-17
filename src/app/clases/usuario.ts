@@ -4,4 +4,5 @@ export class Usuario {
     imagenPerfil: string = '';
     perfil: string = '';
     uid?: string = '';
+    fechaBaja?: Date | null = null;
 }

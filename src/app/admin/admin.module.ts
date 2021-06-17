@@ -4,12 +4,14 @@ import { CommonModule } from '@angular/common';
 import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './admin.component';
 import { ListadoUsuariosComponent } from './listado-usuarios/listado-usuarios.component';
+import { ListadoEliminadosComponent } from './listado-eliminados/listado-eliminados.component';
 
 
 @NgModule({
   declarations: [
     AdminComponent,
-    ListadoUsuariosComponent
+    ListadoUsuariosComponent,
+    ListadoEliminadosComponent
   ],
   imports: [
     CommonModule,

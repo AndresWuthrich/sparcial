@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminGuard } from './guards/admin.guard';
 import { HomeComponent } from './pages/home/home.component';
 import { InscripcionMateriaAlumnoComponent } from './pages/inscripcion-materia-alumno/inscripcion-materia-alumno.component';
 import { InscripcionMateriaComponent } from './pages/inscripcion-materia/inscripcion-materia.component';
@@ -13,7 +14,7 @@ const routes: Routes = [
   { path: 'inscripcionmateriaalumno', component: InscripcionMateriaAlumnoComponent },
   { path: 'listadomaterias', component: ListadoMateriasComponent },
   { path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) },
-  { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
+  { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule), canActivate:[AdminGuard] },
   { path: '**', component: PageNotFoundComponent }
 ];
 

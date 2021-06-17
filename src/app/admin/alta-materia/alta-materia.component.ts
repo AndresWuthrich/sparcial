@@ -82,7 +82,7 @@ export class AltaMateriaComponent implements OnInit {
 
     } else{
       this.listaProfesoresSeleccionados.push(usuario);
-      this.formMateria.controls['profesor'].setValue(usuario.email);
+      this.formMateria.controls['profesor'].setValue(usuario);
     }
   }
 

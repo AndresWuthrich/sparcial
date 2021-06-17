@@ -1,0 +1,39 @@
+<!-- <p>listado-eliminados works!</p>
+
+<div class="row">
+    <div class="col-md-11 mx-auto mt-5">
+        <div class="card">
+            <div class="card-body">
+                <div class="text-center">
+                    <h2 class="text-center">Listado de Alumnos eliminados</h2>       
+                </div>
+                <div class="row mt-2">
+                    <div class="col">
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th class="pos">Imagen</th>
+                                    <th class="pos">Email</th>
+                                    <th class="pos">Fecha de Baja</th>
+                                    <th class="pos">Perfil</th>
+                                </tr>
+                            </thead>
+                            <tbody *ngIf="listaUsuarios != null">
+                                <tr *ngFor="let usuario of listaUsuarios ">
+                                    <td class="pos" *ngIf="usuario.fechaBaja != null"><img src="{{user.URLfoto}}" class="tamanioFoto" alt=""></td>
+                                    <td class="pos" *ngIf="usuario.fechaBaja != null">{{usuario.email}}</td>
+                                    <td class="pos" *ngIf="usuario.fechaBaja != null">{{usuario.fechaBaja.toDate() | date: 'short'}}</td>
+                                    <td class="pos" *ngIf="usuario.fechaBaja != null">{{usuario.perfil}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->

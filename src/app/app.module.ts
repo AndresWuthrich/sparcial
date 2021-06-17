@@ -18,6 +18,8 @@ import { ListadoMateriasComponent } from './pages/listado-materias/listado-mater
 import { NavbarComponent } from './navbar/navbar.component';
 import { InscripcionMateriaAlumnoComponent } from './pages/inscripcion-materia-alumno/inscripcion-materia-alumno.component';
 import { DetalleMateriaComponent } from './pages/detalle-materia/detalle-materia.component';
+import { ResaltarMateriaDirective } from './directives/resaltar-materia.directive';
+import { UpperPipe } from './pipes/upper.pipe';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { DetalleMateriaComponent } from './pages/detalle-materia/detalle-materia
     ListadoMateriasComponent,
     NavbarComponent,
     InscripcionMateriaAlumnoComponent,
-    DetalleMateriaComponent
+    DetalleMateriaComponent,
+    ResaltarMateriaDirective,
+    UpperPipe
   ],
   imports: [
     BrowserModule,

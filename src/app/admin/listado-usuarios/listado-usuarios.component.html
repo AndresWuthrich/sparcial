@@ -2,12 +2,18 @@
 
 
 <div class="card">
-    <div class="card-body">
-        <h4 class="d-flex justify-content-between align-items-center mb-3" *ngIf="listaUsuarios != null">
+    <div class="form-group">
+        <!-- <input type="text" class="form-control" placeholder="Busqueda por tipo perfil o nombre..."
+            name="filterPost" [(ngModel)]="filterPost">
+    </div> -->
+
+     <div class="card-body">
+        <h4 class="d-flex justify-content-between align-items-center mb-3" *ngIf="listaUsuarios != null ">
             <h4>Lista de usuarios</h4>
         </h4>
         <ul class="list-group mb-3">
             <li class="list-group-item d-flex justify-content-between" *ngFor="let usuario of listaUsuarios">
+            <!-- <li class="list-group-item d-flex justify-content-between" *ngFor="let usuario of listaUsuarios | upper:filterPost"> -->
               <!-- (click)="agregarProfesor(profesor)"> -->
                 <div>
                     <h6 class="text-info">{{usuario.email}} {{usuario.perfil}}</h6><img src="{{usuario.imagenPerfil}}"/>
